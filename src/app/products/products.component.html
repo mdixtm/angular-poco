@@ -1,0 +1,35 @@
+<div class="panel panel-primary products-table">
+    <div class="panel-heading products-table-heading">
+        {{ pageTitle }}
+    </div>
+    <div class="panel-body">
+        <div class="table-responsive">
+            <table class="table"
+                    *ngIf='products && products.length'>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Product</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let product of products'>
+                        <td> 
+                            <img 
+                            class='product-image'
+                            [src]='product.imageUrl'
+                            [title]='product.productName'/>
+                        </td>
+                        <td>
+                            <a [routerLink]="['/products', product.productId]">
+                             {{product.productName}} 
+                             </a>
+                        </td>
+                        <td> {{product.price}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
