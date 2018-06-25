@@ -18,24 +18,39 @@ export class ProductsComponent implements OnInit {
                 private _route: ActivatedRoute) {}
 
     ngOnInit(): void {
-
         this._productsService.getProductItems()
         .subscribe(products => {
             this.products = products;
-            console.log("i'm first");
             this.filteredProducts = this.products;
         },error => this.errorMessage = <any>error); 
 
         this._route.params.subscribe(params => {
             let categoryId = +params['categoryId'];
             if (categoryId > 0) {
-                this.filteredProducts = this.performFilter(categoryId);
+                this.filteredProducts = this.performFilterByCategory(categoryId);
             }
         },error => this.errorMessage = <any>error)
     }
     
-    performFilter(categoryId: number) : IProduct[] { 
+    _listFilter: string;
+    get listFilter(): string {
+        return this._listFilter;
+    }
+
+    set listFilter(value: string) {
+        this._listFilter = value;
+        this.filteredProducts= this.listFilter ? this.performFilterByString(this.listFilter) : this.products;
+    }
+
+    performFilterByCategory(categoryId: number) : IProduct[] { 
         return this.products.filter((product : IProduct) => 
             product.categoryId === categoryId);
     }
+
+    performFilterByString(filterBy: string): IProduct[] {
+        filterBy = filterBy.toLocaleLowerCase();
+        return this.products.filter((product: IProduct) =>
+            product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
+    }
+
 }
