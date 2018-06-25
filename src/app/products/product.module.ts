@@ -5,6 +5,7 @@ import { ProductsComponent}  from './products.component';
 import { ProductsService } from './products-service';
 import { ProductDetailComponent } from './product-detail.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     BrowserModule,
@@ -13,7 +14,8 @@ import { BrowserModule } from '@angular/platform-browser';
       { path: 'products', component: ProductsComponent},
       { path: 'productDetails/:productId',
          component: ProductDetailComponent },
-    ])
+    ]),
+    FormsModule
   ],
 
   declarations: [

@@ -5,8 +5,8 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { MenuModule} from './menu/menu.module';
-import { ProductsModule} from './products/product.module';
 import { HomeModule } from './home/home.module';
+import { ProductsModule } from './products/product.module';
 
 @NgModule({
   declarations: [
@@ -21,8 +21,8 @@ import { HomeModule } from './home/home.module';
       { path: '', redirectTo: 'home', pathMatch: 'full'}
     ]),
     MenuModule,
+    ProductsModule,
     HomeModule,
-    ProductsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

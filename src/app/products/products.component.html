@@ -2,6 +2,14 @@
     <div class="panel-heading products-table-heading">
         {{ pageTitle }}
     </div>
+    <div class="row">
+        <div class="col-md-2">
+            <input type="text" [(ngModel)]="listFilter"/>
+        </div>
+        <div class="col-md-10">
+            Filtered by: {{listFilter}}
+        </div>
+    </div>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table"
