@@ -10,11 +10,12 @@
                     <tr>
                         <th></th>
                         <th>Product</th>
+                        <th>Buy</th>
                         <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor='let product of products'>
+                    <tr *ngFor='let product of filteredProducts'>
                         <td> 
                             <img 
                             class='product-image'
@@ -25,6 +26,9 @@
                             <a [routerLink]="['/products', product.productId]">
                              {{product.productName}} 
                              </a>
+                        </td>
+                        <td>
+                            <button>Add to cart</button>
                         </td>
                         <td> {{product.price}} </td>
                     </tr>
