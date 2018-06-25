@@ -7,6 +7,8 @@ import { HomeComponent } from './home/home.component';
 import { MenuModule} from './menu/menu.module';
 import { HomeModule } from './home/home.module';
 import { ProductsModule } from './products/product.module';
+import { CartModule } from './cart/cart.module';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
   declarations: [
@@ -18,10 +20,12 @@ import { ProductsModule } from './products/product.module';
     RouterModule.forRoot([
       { path: 'home', component: HomeComponent},
       { path: '', redirectTo: 'home', pathMatch: 'full'},
-      { path: '', redirectTo: 'home', pathMatch: 'full'}
+      { path: '', redirectTo: 'home', pathMatch: 'full'},
+      { path: 'cart', component: CartComponent},
     ]),
     MenuModule,
     ProductsModule,
+    CartModule,
     HomeModule,
   ],
   providers: [],
