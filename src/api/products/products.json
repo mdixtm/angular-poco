@@ -55,7 +55,7 @@
         "categoryId" : 1
     },
     {
-        "productId": 8,
+        "productId": 11,
         "productName": "Saw3",
         "productCode": "TBX-0022",
         "releaseDate": "May 15, 2016",
@@ -66,7 +66,7 @@
         "categoryId" : 2
     },
     {
-        "productId": 10,
+        "productId": 12,
         "productName": "Video Game Controller - M",
         "productCode": "GMG-0042",
         "releaseDate": "October 15, 2015",

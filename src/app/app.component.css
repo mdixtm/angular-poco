@@ -1,0 +1,9 @@
+.cart-slot {
+    float: right;
+    margin-left: 1000px;
+}
+
+.cart-image {
+    width: 50px;
+    background-color: white;
+}

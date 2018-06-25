@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
 import { ProductsService } from './products-service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
     styleUrls: ['./products.component.css'],
@@ -15,7 +15,8 @@ export class ProductsComponent implements OnInit {
     errorMessage: "This is an eror message";
 
     constructor(private _productsService: ProductsService,
-                private _route: ActivatedRoute) {}
+                private _route: ActivatedRoute,
+                private _router: Router) {}
 
     ngOnInit(): void {
         this._productsService.getProductItems()
@@ -53,4 +54,7 @@ export class ProductsComponent implements OnInit {
             product.productName.toLocaleLowerCase().indexOf(filterBy) !== -1);
     }
 
+    addToCart(productId: number) {
+        this._router.navigate(['/cart', productId]);
+    }
 }
