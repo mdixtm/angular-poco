@@ -1,0 +1,16 @@
+<div *ngIf="product">
+    <div class="row">
+        <div class="col-md-12">
+             {{product.productName}}
+         </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+             {{product.description}}
+        </div>
+    </div>
+</div>
+
+<a class='btn btn-default' (click)='onBack()' style='width:200px'>
+    <i class='glyphicon glyphicon-chevron-left'></i> Back to product list
+</a>
