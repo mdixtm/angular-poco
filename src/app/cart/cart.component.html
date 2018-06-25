@@ -1,5 +1,25 @@
-<div *ngIf="product">
-    {{product.productName}}
-</div>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+        This is your cart content:
+        </div>
+    </div>
+    <div *ngIf="product">
+        {{product.productName}}
+    </div>
 
-So here you are
+    <div class="container">
+        <div class="row">
+            <div *ngFor='let cartItem of cartItems'>
+                <div class="row">
+                    <div class="col-md-2">
+                    {{cartItem.productName}}
+                    </div>
+                    <div class="col-md-10">
+                    {{cartItem.quantity}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
