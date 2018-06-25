@@ -1,0 +1,44 @@
+[
+    {
+        "productId": 1,
+        "productName": "Leaf Rake",
+        "quantity": 10,
+        "categoryId": 1
+    },
+    {
+        "productId": 2,
+        "productName": "Garden Cart",
+        "quantity": 10,
+        "categoryId": 2
+    },
+    {
+        "productId": 5,
+        "productName": "Hammer",
+        "quantity": 10,
+        "categoryId" : 3
+    },
+    {
+        "productId": 8,
+        "productName": "Saw",
+        "quantity": 10,
+        "categoryId" : 4
+    },
+    {
+        "productId": 10,
+        "productName": "Video Game Controller",
+        "quantity": 10,
+        "categoryId" : 1
+    },
+    {
+        "productId": 11,
+        "productName": "Saw3",
+        "quantity": 10,
+        "categoryId" : 2
+    },
+    {
+        "productId": 12,
+        "productName": "Video Game Controller - M",
+        "quantity": 10,
+        "categoryId" : 3
+    }
+]

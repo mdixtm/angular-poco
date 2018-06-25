@@ -3,6 +3,7 @@ import { CartService } from './cart-service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductsService } from '../products/products-service';
 import { IProduct } from '../products/product';
+import { ICartItem } from './cart-item';
 
 @Component({
     templateUrl: './cart.component.html'
@@ -15,6 +16,7 @@ export class CartComponent implements OnInit{
                 private _route: ActivatedRoute) {}
 
     product : IProduct;
+    cartItems : ICartItem[];
     errorMessage : "This is an error message";
 
     ngOnInit(): void
@@ -25,6 +27,11 @@ export class CartComponent implements OnInit{
         .subscribe(products => {
             this.product = products.find((product : IProduct) => 
             product.productId === productId);
+        },error => this.errorMessage = <any>error); 
+
+        this._cartService.getCartItems()
+        .subscribe(cartItems => {
+            this.cartItems = cartItems;
         },error => this.errorMessage = <any>error); 
     }
 }
