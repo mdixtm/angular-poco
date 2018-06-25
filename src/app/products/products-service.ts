@@ -14,8 +14,15 @@ export class ProductsService {
 
     getProductItems(): Observable<IProduct[]> {
         return this._http.get<IProduct[]>(this._productsUrl)
-            .do(data => console.log('Those are products items' + JSON.stringify(data)))
+            .do(data => console.log('Those are products items'))
             .catch(this.handleError);    
+    }
+
+    getProduct(id): Observable<IProduct>{
+        const getProductUrl = `${this._productsUrl}/${id}`;
+        return this._http.get<IProduct>(getProductUrl)
+        .do(data => console.log("Done.."))
+        .catch(this.handleError);
     }
 
     private handleError(err: HttpErrorResponse) {

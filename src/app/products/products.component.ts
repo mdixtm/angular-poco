@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IProduct } from './product';
 import { ProductsService } from './products-service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     styleUrls: ['./products.component.css'],
@@ -18,22 +18,24 @@ export class ProductsComponent implements OnInit {
                 private _route: ActivatedRoute) {}
 
     ngOnInit(): void {
+
         this._productsService.getProductItems()
-            .subscribe(products => {
-                this.products = products;
-                this.filteredProducts = this.products;
-            },error => this.errorMessage = <any>error); 
-            
+        .subscribe(products => {
+            this.products = products;
+            console.log("i'm first");
+            this.filteredProducts = this.products;
+        },error => this.errorMessage = <any>error); 
+
         this._route.params.subscribe(params => {
-            let categoryId = params['categoryId'];
+            let categoryId = +params['categoryId'];
             if (categoryId > 0) {
                 this.filteredProducts = this.performFilter(categoryId);
             }
-        })
+        },error => this.errorMessage = <any>error)
     }
     
     performFilter(categoryId: number) : IProduct[] { 
         return this.products.filter((product : IProduct) => 
-            product.categoryId == categoryId);
+            product.categoryId === categoryId);
     }
 }
