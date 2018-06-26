@@ -10,6 +10,13 @@
             Filtered by: {{listFilter}}
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-12">
+            {{ currentRating }}
+            <br>
+            {{ displayedMessage }}
+        </div>
+    </div>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table"
@@ -34,6 +41,10 @@
                             <a [routerLink]="['/productDetails', product.productId]">
                              {{product.productName}} 
                              </a>
+                             <pm-star [rating]='product.starRating'
+                                      (notify)='onNotify($event)'
+                                      (ratingClicked)='onRatingClicked($event)'>
+                             </pm-star>
                         </td>
                         <td>
                             <button (click)='addToCart(product.productId)'>Add to cart</button>
