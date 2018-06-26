@@ -7,6 +7,8 @@ import { ProductDetailComponent } from './product-detail.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { CartComponent } from '../cart/cart.component';
+import { SharedModule } from '../shared/shared.module';
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -17,7 +19,8 @@ import { CartComponent } from '../cart/cart.component';
       { path: 'productDetails/:productId',
          component: ProductDetailComponent },
     ]),
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
 
   declarations: [

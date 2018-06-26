@@ -13,12 +13,24 @@ export class ProductsComponent implements OnInit {
     products: IProduct[] = [];
     filteredProducts: IProduct[];
     errorMessage: "This is an eror message";
+    currentRating: string;
+    addToCartMessage: "Product was added to cart";
+    displayedMessage: string;
 
     constructor(private _productsService: ProductsService,
                 private _route: ActivatedRoute,
                 private _router: Router) {}
 
+    onRatingClicked(message: string) : void {
+        this.currentRating = message;
+    }
+
+    onAddToCartClicked() : void {
+        this.displayedMessage = this.addToCartMessage;
+    }
+
     ngOnInit(): void {
+        this.displayedMessage = '';
         this._productsService.getProductItems()
         .subscribe(products => {
             this.products = products;
@@ -57,4 +69,6 @@ export class ProductsComponent implements OnInit {
     addToCart(productId: number) {
         this._router.navigate(['/cart', productId]);
     }
+
+    onNotify(message: string): void {}
 }
